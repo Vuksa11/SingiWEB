@@ -63,3 +63,38 @@ body {
 .clanak a { color: var(--color-red-600); text-decoration: underline; }
 .clanak strong { font-weight: 700; color: var(--color-navy-800); }
 .clanak img { width: 100%; margin: 1.2em 0; }
+
+/* Plava pozadina sa dijagonalnim belim odsjajem koji prelazi svakih 5 s. */
+.plavi-sjaj {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(180deg, rgba(255,255,255,.035) 0 2px, transparent 2px 46px),
+    linear-gradient(135deg, #0f1d35 0%, #1d3a66 45%, #2a4a7a 60%, #16284a 100%);
+}
+.plavi-sjaj::after {
+  content: "";
+  position: absolute;
+  inset: -50% -100%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(255,255,255,.06) 47%,
+    rgba(255,255,255,.22) 50%,
+    rgba(255,255,255,.06) 53%,
+    transparent 58%
+  );
+  transform: translateX(-60%);
+  animation: plavi-sjaj-prelaz 5s ease-in-out infinite;
+}
+@keyframes plavi-sjaj-prelaz {
+  0%   { transform: translateX(-60%); }
+  40%  { transform: translateX(60%); }  /* odsjaj pređe za ~2 s ... */
+  100% { transform: translateX(60%); }  /* ... pa pauza do sledećeg ciklusa */
+}
+@media (prefers-reduced-motion: reduce) {
+  .plavi-sjaj::after { animation: none; opacity: 0; }
+}

@@ -4,7 +4,7 @@ export default function NaslovSekcije({ kicker, naslov, link, svetla = false }: 
   return (
     <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
       <div>
-        <div className="kicker text-red-600">{kicker}</div>
+        <div className={`kicker ${svetla ? "text-red-600" : "text-red-300"}`}>{kicker}</div>
         <h2 className={`display mt-2 text-[44px] sm:text-[60px] ${svetla ? "text-navy-800" : "text-white"}`}>{naslov}</h2>
       </div>
       {link && (

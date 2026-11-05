@@ -80,10 +80,10 @@ export default function Pocetna() {
       </section>
 
       {/* VESTI + TABELA SA STRANE */}
-      <section className="bg-cream-100 py-20 staze-svetle">
+      <section className="plavi-sjaj py-20">
         <div className="mx-auto grid max-w-[1328px] gap-8 px-5 sm:px-7 lg:grid-cols-[1fr_340px]">
           <div>
-            <NaslovSekcije kicker="Iz kluba" naslov="Vesti" link={{ href: "/vesti", tekst: "Sve vesti" }} svetla />
+            <NaslovSekcije kicker="Iz kluba" naslov="Vesti" link={{ href: "/vesti", tekst: "Sve vesti" }} />
             {vesti.length > 0 ? (
               <div className="grid gap-5 sm:grid-cols-2">
                 {vesti.map((v, i) => (
@@ -92,7 +92,7 @@ export default function Pocetna() {
                   </div>
                 ))}
               </div>
-            ) : <p className="text-navy-800/60">Još nema vesti.</p>}
+            ) : <p className="text-white/60">Još nema vesti.</p>}
           </div>
           <aside className="lg:pt-[118px]">
             <div className="lg:sticky lg:top-24">
