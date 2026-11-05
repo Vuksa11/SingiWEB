@@ -16,8 +16,8 @@ export default function MladjeKategorije() {
           <Image src={s.slika} alt="" fill className="object-cover" priority />
         </div>
       )}
-      <section className="bg-cream-100 py-14 text-navy-800">
-        <div className="clanak mx-auto max-w-[820px] px-5 sm:px-7" dangerouslySetInnerHTML={{ __html: uHtml(s?.telo ?? "") }} />
+      <section className="plavi-sjaj min-h-[50vh] py-14">
+        <div className="clanak clanak-tamni mx-auto max-w-[820px] px-5 sm:px-7" dangerouslySetInnerHTML={{ __html: uHtml(s?.telo ?? "") }} />
       </section>
     </>
   );

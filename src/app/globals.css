@@ -114,3 +114,10 @@ body {
 /* Slike unutar teksta (vesti, mlađe kategorije) */
 .clanak img { border-radius: 10px; }
 .clanak p:has(> img:only-child) { margin: 1.6em 0; }
+
+/* Tekst na tamnoj/plavoj pozadini (Mlađe kategorije) */
+.clanak-tamni p, .clanak-tamni li { color: rgba(255,255,255,.82); }
+.clanak-tamni h2 { color: #fff; }
+.clanak-tamni strong { color: #fff; }
+.clanak-tamni a { color: var(--color-red-300); }
+.clanak-tamni img { box-shadow: 0 10px 30px rgba(0,0,0,.35); }
