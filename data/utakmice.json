@@ -1,0 +1,222 @@
+{
+  "azurirano": "2026-11-05T09:35:54.099Z",
+  "izvor": "https://srbijasport.net/league/8940-prva-a-liga/games",
+  "utakmice": [
+    {
+      "kolo": 1,
+      "datum": "2026-10-18T21:30:00+02:00",
+      "domacin": "Singidunum",
+      "gost": "Požarevac",
+      "grad": "Beograd",
+      "rezultat": "14:12",
+      "link": "https://srbijasport.net/game/903475-singidunum-pozarevac"
+    },
+    {
+      "kolo": 2,
+      "datum": "2026-10-24T21:30:00+02:00",
+      "domacin": "Singidunum",
+      "gost": "Bečej",
+      "grad": "Beograd",
+      "rezultat": "10:12",
+      "link": "https://srbijasport.net/game/903488-singidunum-becej"
+    },
+    {
+      "kolo": 3,
+      "datum": "2026-10-31T20:00:00+01:00",
+      "domacin": "Palilula",
+      "gost": "Singidunum",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903490-palilula-singidunum"
+    },
+    {
+      "kolo": 4,
+      "datum": "2026-11-07T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "Mladost",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903501-singidunum-mladost"
+    },
+    {
+      "kolo": 5,
+      "datum": "2026-11-14T00:00:00+01:00",
+      "domacin": "Taš",
+      "gost": "Singidunum",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903505-tas-singidunum"
+    },
+    {
+      "kolo": 6,
+      "datum": "2026-11-21T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "Taurunum",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903514-singidunum-taurunum"
+    },
+    {
+      "kolo": 7,
+      "datum": "2026-11-28T00:00:00+01:00",
+      "domacin": "TENT",
+      "gost": "Singidunum",
+      "grad": "Obrenovac",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903520-tent-singidunum"
+    },
+    {
+      "kolo": 8,
+      "datum": "2026-12-09T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "Dorćol",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903527-singidunum-dorcol"
+    },
+    {
+      "kolo": 9,
+      "datum": "2026-12-16T00:00:00+01:00",
+      "domacin": "BVK Radnički",
+      "gost": "Singidunum",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903535-bvk-radnicki-singidunum"
+    },
+    {
+      "kolo": 10,
+      "datum": "2026-12-23T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "Borac (BL)",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903540-singidunum-borac-bl"
+    },
+    {
+      "kolo": 11,
+      "datum": "2027-01-09T00:00:00+01:00",
+      "domacin": "Rasina",
+      "gost": "Singidunum",
+      "grad": "Kruševac",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903550-rasina-singidunum"
+    },
+    {
+      "kolo": 13,
+      "datum": "2027-01-27T00:00:00+01:00",
+      "domacin": "Vračar",
+      "gost": "Singidunum",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903565-vracar-singidunum"
+    },
+    {
+      "kolo": 14,
+      "datum": "2027-01-30T00:00:00+01:00",
+      "domacin": "Požarevac",
+      "gost": "Singidunum",
+      "grad": "Požarevac",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903566-pozarevac-singidunum"
+    },
+    {
+      "kolo": 15,
+      "datum": "2027-02-06T00:00:00+01:00",
+      "domacin": "Bečej",
+      "gost": "Singidunum",
+      "grad": "Bečej",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903579-becej-singidunum"
+    },
+    {
+      "kolo": 16,
+      "datum": "2027-02-13T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "Palilula",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903581-singidunum-palilula"
+    },
+    {
+      "kolo": 17,
+      "datum": "2027-02-17T00:00:00+01:00",
+      "domacin": "Mladost",
+      "gost": "Singidunum",
+      "grad": "Pančevo",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903592-mladost-singidunum"
+    },
+    {
+      "kolo": 18,
+      "datum": "2027-02-20T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "Taš",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903596-singidunum-tas"
+    },
+    {
+      "kolo": 19,
+      "datum": "2027-02-27T00:00:00+01:00",
+      "domacin": "Taurunum",
+      "gost": "Singidunum",
+      "grad": "Zemun",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903605-taurunum-singidunum"
+    },
+    {
+      "kolo": 20,
+      "datum": "2027-03-06T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "TENT",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903611-singidunum-tent"
+    },
+    {
+      "kolo": 21,
+      "datum": "2027-03-10T00:00:00+01:00",
+      "domacin": "Dorćol",
+      "gost": "Singidunum",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903618-dorcol-singidunum"
+    },
+    {
+      "kolo": 22,
+      "datum": "2027-03-13T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "BVK Radnički",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903626-singidunum-bvk-radnicki"
+    },
+    {
+      "kolo": 23,
+      "datum": "2027-03-20T00:00:00+01:00",
+      "domacin": "Borac (BL)",
+      "gost": "Singidunum",
+      "grad": "Banja Luka",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903631-borac-bl-singidunum"
+    },
+    {
+      "kolo": 24,
+      "datum": "2027-03-27T00:00:00+01:00",
+      "domacin": "Singidunum",
+      "gost": "Rasina",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903641-singidunum-rasina"
+    },
+    {
+      "kolo": 26,
+      "datum": "2027-04-10T00:00:00+02:00",
+      "domacin": "Singidunum",
+      "gost": "Vračar",
+      "grad": "Beograd",
+      "rezultat": null,
+      "link": "https://srbijasport.net/game/903656-singidunum-vracar"
+    }
+  ]
+}

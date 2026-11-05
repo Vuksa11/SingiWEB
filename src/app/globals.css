@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* Paleta i fontovi preuzeti 1:1 iz aplikacije za dolaznost (vkbgd). */
+@theme {
+  --font-cond: var(--font-barlow-condensed), "Barlow Condensed", system-ui, sans-serif;
+  --font-body: var(--font-barlow), Barlow, system-ui, sans-serif;
+
+  --color-navy-950: #070e1b;
+  --color-navy-900: #0b1628;
+  --color-navy-800: #0f1d35;
+  --color-navy-700: #16284a;
+  --color-navy-600: #2a4a7a;
+  --color-red-600: #da1f2e;
+  --color-red-500: #f0303f;
+  --color-red-300: #ff6b76;
+  --color-cream-100: #f5f3ef;
+  --color-cream-200: #e9e6e0;
+  --color-green-700: #1f7a4d;
+  --color-amber-600: #c98a16;
+}
+
+html { color-scheme: light; scroll-behavior: smooth; }
+
+body {
+  background: var(--color-navy-900);
+  color: #fff;
+  font-family: var(--font-body);
+}
+
+.font-cond { font-family: var(--font-cond); }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* Naslovi u stilu "display" — veliki, kondenzovani, verzal. */
+.display {
+  font-family: var(--font-cond);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+.kicker {
+  font-family: var(--font-cond);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* Plivačke staze kao pozadinski motiv (isto kao u aplikaciji). */
+.staze-tamne {
+  background-image: repeating-linear-gradient(180deg, rgba(255,255,255,.03) 0 2px, transparent 2px 46px);
+}
+.staze-svetle {
+  background-image: repeating-linear-gradient(180deg, rgba(15,29,53,.04) 0 2px, transparent 2px 46px);
+}
+
+/* Tekst vesti (markdown). */
+.clanak p { margin: 0 0 1.1em; line-height: 1.7; font-size: 18px; color: rgba(15,29,53,.85); }
+.clanak h2 { font-family: var(--font-cond); font-weight: 700; font-size: 28px; text-transform: uppercase; margin: 1.6em 0 .5em; }
+.clanak ul { list-style: disc; padding-left: 1.3em; margin: 0 0 1.1em; }
+.clanak li { margin: .3em 0; font-size: 18px; }
+.clanak a { color: var(--color-red-600); text-decoration: underline; }
+.clanak strong { font-weight: 700; color: var(--color-navy-800); }
+.clanak img { width: 100%; margin: 1.2em 0; }
