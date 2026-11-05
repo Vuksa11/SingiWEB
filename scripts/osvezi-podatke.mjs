@@ -1,11 +1,14 @@
 // Povlači tabelu i raspored/rezultate Singidunuma sa srbijasport.net i upisuje
-// data/tabela.json i data/utakmice.json. Pokreće ga GitHub Action sredom i vikendom
-// (.github/workflows/osvezi-podatke.yml); ručno: npm run osvezi
+// data/takmicenje.json, data/tabela.json i data/utakmice.json. Pokreće ga GitHub
+// Action sredom i vikendom (.github/workflows/osvezi-podatke.yml); ručno: npm run osvezi
+//
+// Sezona se otkriva SAMA: prvi link u "Istoriji" na strani kluba je aktuelno
+// takmičenje, pa nova sezona ne zahteva nikakvu izmenu koda.
 import { readFileSync, writeFileSync } from "node:fs";
 
-const LIGA = "https://srbijasport.net/league/8940-prva-a-liga"; // promeni svake sezone
+const SAJT = "https://srbijasport.net";
+const KLUB_URL = `${SAJT}/club/1140-singidunum`;
 const KLUB = "Singidunum";
-const BROJ_KOLA = 26;
 const UA = { "User-Agent": "VK-Singidunum-sajt (osvezavanje sreda+vikend)" };
 
 const preuzmi = async (url) => {
@@ -60,12 +63,29 @@ function parsirajKolo(html, kolo) {
   return out;
 }
 
+// ---------- aktuelno takmičenje ----------
+const klubHtml = await preuzmi(KLUB_URL);
+const posleIstorije = klubHtml.slice(klubHtml.indexOf("Istorija"));
+const ligaPutanja = posleIstorije.match(/href="(\/league\/\d+-[^"]+)"/)?.[1];
+if (!ligaPutanja) throw new Error("aktuelna liga nije pronađena na strani kluba");
+const LIGA = `${SAJT}${ligaPutanja}`;
+
+const prvoKolo = await preuzmi(`${LIGA}/games?round=1`);
+const naslovStrane = prvoKolo.match(/<title>([^<]*)/)?.[1] ?? "";
+const sezonaM = naslovStrane.match(/(\d{4})-(\d{4})/);
+const sezona = sezonaM ? `${sezonaM[1]}/${sezonaM[2].slice(2)}` : "";
+// Naslov: "srbijasport.net - Vaterpolo - Muškarci - 2026-2027 - Prva A liga - Rezultati - 1.kolo"
+const nazivLige = naslovStrane.match(/\d{4}-\d{4}\s+-\s+(.+?)\s+-\s+Rezultati/)?.[1]?.trim() || "Liga";
+const BROJ_KOLA = Math.max(1, ...[...prvoKolo.matchAll(/switchRound\((\d+)\)/g)].map((m) => Number(m[1])));
+console.log(`Takmičenje: ${nazivLige} ${sezona}, ${BROJ_KOLA} kola (${LIGA})`);
+
 const tabela = parsirajTabelu(await preuzmi(`${LIGA}/standings`));
 if (tabela.length < 4) throw new Error("premalo redova u tabeli — verovatno se promenio HTML");
 
 const utakmice = [];
 for (let k = 1; k <= BROJ_KOLA; k++) {
-  utakmice.push(...parsirajKolo(await preuzmi(`${LIGA}/games?round=${k}`), k));
+  const html = k === 1 ? prvoKolo : await preuzmi(`${LIGA}/games?round=${k}`);
+  utakmice.push(...parsirajKolo(html, k));
   await new Promise((r) => setTimeout(r, 400)); // da ne opterećujemo srbijasport
 }
 if (utakmice.length === 0) throw new Error("nema utakmica — verovatno se promenio HTML");
@@ -81,5 +101,6 @@ function upisi(fajl, podaci) {
   console.log(`${fajl}: ažurirano`);
 }
 const sada = new Date().toISOString();
+upisi("data/takmicenje.json", { azurirano: sada, naziv: nazivLige, sezona, ligaUrl: LIGA, klubUrl: KLUB_URL });
 upisi("data/tabela.json", { azurirano: sada, izvor: `${LIGA}/standings`, redovi: tabela });
 upisi("data/utakmice.json", { azurirano: sada, izvor: `${LIGA}/games`, utakmice });

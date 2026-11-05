@@ -110,8 +110,8 @@ export default function Pocetna() {
         <div className="mx-auto max-w-[1328px] px-5 sm:px-7">
           <NaslovSekcije kicker="Postani deo tima" naslov="Klub" />
           <div className="grid gap-5 md:grid-cols-3">
-            <KlubKartica broj="01" naslov="Prvi tim" tekst={`Seniorska ekipa u ${TAKMICENJE.naziv === "Prva A liga" ? "Prvoj A ligi" : TAKMICENJE.naziv} Srbije.`} />
-            <KlubKartica broj="02" naslov="Mlađe kategorije" tekst="Kadeti, juniori i pioniri — takmičenja i redovni treninzi tokom cele godine." />
+            <KlubKartica broj="01" naslov="Prvi tim" tekst={`Seniorska ekipa u ${TAKMICENJE.naziv === "Prva A liga" ? "Prvoj A ligi" : TAKMICENJE.naziv} Srbije.`} link={{ href: "/ekipa", tekst: "Upoznaj ekipu" }} />
+            <KlubKartica broj="02" naslov="Mlađe kategorije" tekst="Kadeti, juniori i pioniri — takmičenja i redovni treninzi tokom cele godine." link={{ href: "/mladje-kategorije", tekst: "Više" }} />
             <KlubKartica broj="03" naslov="Škola vaterpola" tekst="Upis dece tokom cele godine. Javi se za probni trening." link={{ href: "#kontakt", tekst: "Kontakt" }} />
           </div>
         </div>

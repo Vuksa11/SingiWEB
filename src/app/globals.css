@@ -110,3 +110,7 @@ body {
 }
 .kartica-sjaj:hover::after { transform: translateX(120%); transition: transform .9s ease-in-out; }
 @media (prefers-reduced-motion: reduce) { .kartica-sjaj::after { display: none; } }
+
+/* Slike unutar teksta (vesti, mlađe kategorije) */
+.clanak img { border-radius: 10px; }
+.clanak p:has(> img:only-child) { margin: 1.6em 0; }

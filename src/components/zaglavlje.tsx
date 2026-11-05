@@ -6,7 +6,8 @@ const STAVKE = [
   { href: "/vesti", tekst: "Vesti" },
   { href: "/raspored", tekst: "Raspored" },
   { href: "/tabela", tekst: "Tabela" },
-  { href: "/#klub", tekst: "Klub" },
+  { href: "/ekipa", tekst: "Prvi tim" },
+  { href: "/mladje-kategorije", tekst: "Mlađi" },
   { href: "/#kontakt", tekst: "Kontakt" },
 ];
 

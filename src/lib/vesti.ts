@@ -1,7 +1,8 @@
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
-import { marked } from "marked";
+import { uHtml } from "./markdown";
+export { KATEGORIJE } from "./markdown";
 
 // Vesti su Markdown fajlovi u content/vesti/. Nova vest = novi .md fajl
 // (može i direktno preko GitHub web editora) → Vercel sam objavi posle commita.
@@ -27,7 +28,7 @@ export type Vest = {
 
 const FOLDER = path.join(process.cwd(), "content", "vesti");
 
-function parsiraj(slug: string, sirovo: string): Vest {
+export function parsiraj(slug: string, sirovo: string): Vest {
   const m = sirovo.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
   const meta: Record<string, string> = {};
   if (m) {
@@ -60,8 +61,39 @@ export function jednaVest(slug: string): (Vest & { html: string }) | null {
   const fajl = path.join(FOLDER, `${slug}.md`);
   if (!/^[a-z0-9-]+$/.test(slug) || !fs.existsSync(fajl)) return null;
   const v = parsiraj(slug, fs.readFileSync(fajl, "utf8"));
-  return { ...v, html: marked.parse(v.telo, { async: false }) as string };
+  return { ...v, html: uHtml(v.telo) };
 }
+
+/** Pravi sadržaj .md fajla iz polja forme (sve u jednom redu, bez prelamanja zaglavlja). */
+export function napraviMarkdown(v: Omit<Vest, "slug">) {
+  const red = (s: string) => s.replace(/[\r\n]+/g, " ").trim();
+  return [
+    "---",
+    `naslov: ${red(v.naslov)}`,
+    `datum: ${red(v.datum)}`,
+    `kategorija: ${red(v.kategorija)}`,
+    ...(v.slika ? [`slika: ${red(v.slika)}`] : []),
+    `sazetak: ${red(v.sazetak)}`,
+    "---",
+    "",
+    v.telo.replace(/\r\n/g, "\n").trim(),
+    "",
+  ].join("\n");
+}
+
+/** "Singidunum savladao Bečej!" → "singidunum-savladao-becej" */
+export function napraviSlug(naslov: string) {
+  const mapa: Record<string, string> = { č: "c", ć: "c", š: "s", đ: "dj", ž: "z", Č: "c", Ć: "c", Š: "s", Đ: "dj", Ž: "z" };
+  return naslov
+    .replace(/[čćšđžČĆŠĐŽ]/g, (z) => mapa[z])
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "vest";
+}
+
 
 const MESECI = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
 export function formatDatum(iso: string) {

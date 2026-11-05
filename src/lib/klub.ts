@@ -10,13 +10,14 @@ export const KLUB = {
   email: "wpcsingidumun@gmail.com",
 };
 
-// Tabela i utakmice dolaze sa srbijasport.net preko scripts/osvezi-podatke.mjs
-// (GitHub Action, sredom i vikendom). Svake sezone promeni ID lige i ovde i u skripti.
+// Takmičenje (naziv, sezona, liga) se otkriva automatski sa srbijasport.net —
+// vidi scripts/osvezi-podatke.mjs i data/takmicenje.json.
+import takmicenje from "../../data/takmicenje.json";
+
 export const TAKMICENJE = {
-  naziv: "Prva A liga",
-  sezona: "2026/27",
-  srbijasportLigaUrl: "https://srbijasport.net/league/8940-prva-a-liga",
-  srbijasportKlubUrl: "https://srbijasport.net/club/1140-singidunum",
-  // Kako se naš klub zove u tabeli (za isticanje reda).
-  nazivUTabeli: "Singidunum",
+  naziv: takmicenje.naziv,
+  sezona: takmicenje.sezona,
+  srbijasportLigaUrl: takmicenje.ligaUrl,
+  srbijasportKlubUrl: takmicenje.klubUrl,
+  nazivUTabeli: KLUB.ime,
 };
