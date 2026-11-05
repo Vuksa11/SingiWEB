@@ -40,7 +40,7 @@ export default function Pocetna() {
 
         {/* Traka: sledeća utakmica / poslednji rezultat / pozicija */}
         <div className="relative border-t border-white/8 bg-navy-950/70">
-          <div className="mx-auto grid max-w-[1328px] divide-white/8 px-5 sm:px-7 md:grid-cols-2 md:divide-x lg:grid-cols-[1.3fr_1.3fr_.7fr_.7fr]">
+          <div className="mx-auto grid max-w-[1328px] divide-white/8 px-5 sm:px-7 md:grid-cols-2 lg:divide-x lg:grid-cols-[1.3fr_1.3fr_.7fr_.7fr]">
             <TrakaStavka naslov="Sledeća utakmica">
               {sledeca ? (
                 <>
@@ -122,7 +122,7 @@ export default function Pocetna() {
 
 function TrakaStavka({ naslov, children }: { naslov: string; children: React.ReactNode }) {
   return (
-    <div className="border-b border-white/8 py-6 md:border-b-0 md:px-7 md:first:pl-0">
+    <div className="border-b border-white/8 py-6 last:border-b-0 md:px-7 md:odd:pl-0 md:even:border-l lg:even:border-l-0 md:[&:nth-child(n+3)]:border-b-0 lg:border-b-0 lg:odd:pl-7 lg:first:pl-0">
       <div className="kicker mb-2 text-[11px] text-white/40">{naslov}</div>
       {children}
     </div>

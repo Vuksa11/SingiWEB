@@ -81,11 +81,11 @@ body {
   pointer-events: none;
   background: linear-gradient(
     115deg,
-    transparent 42%,
-    rgba(255,255,255,.06) 47%,
-    rgba(255,255,255,.22) 50%,
-    rgba(255,255,255,.06) 53%,
-    transparent 58%
+    transparent 38%,
+    rgba(255,255,255,.05) 45%,
+    rgba(255,255,255,.20) 50%,
+    rgba(255,255,255,.05) 55%,
+    transparent 62%
   );
   transform: translateX(-60%);
   animation: plavi-sjaj-prelaz 5s ease-in-out infinite;
