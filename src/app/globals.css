@@ -98,3 +98,15 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .plavi-sjaj::after { animation: none; opacity: 0; }
 }
+
+/* Klub kartice: isti beli odsjaj kao plava sekcija, ali samo na hover. */
+.kartica-sjaj::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.16) 50%, transparent 65%);
+  transform: translateX(-120%);
+}
+.kartica-sjaj:hover::after { transform: translateX(120%); transition: transform .9s ease-in-out; }
+@media (prefers-reduced-motion: reduce) { .kartica-sjaj::after { display: none; } }

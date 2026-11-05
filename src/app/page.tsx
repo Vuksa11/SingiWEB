@@ -93,6 +93,9 @@ export default function Pocetna() {
                 ))}
               </div>
             ) : <p className="text-white/60">Još nema vesti.</p>}
+            <Link href="/vesti" className="mt-8 flex items-center justify-center gap-3 rounded-[8px] border border-white/25 bg-white/5 px-6 py-4 font-cond text-[16px] font-bold uppercase tracking-[.18em] transition-colors hover:border-white hover:bg-white hover:text-navy-800">
+              Sve vesti <span aria-hidden>→</span>
+            </Link>
           </div>
           <aside className="lg:pt-[118px]">
             <div className="lg:sticky lg:top-24">
@@ -103,12 +106,14 @@ export default function Pocetna() {
       </section>
 
       {/* KLUB */}
-      <section id="klub" className="bg-cream-100 py-20 text-navy-800">
-        <div className="mx-auto grid max-w-[1328px] gap-6 px-5 sm:px-7 md:grid-cols-3">
-          <div className="md:col-span-3"><NaslovSekcije kicker="Postani deo tima" naslov="Klub" svetla /></div>
-          <KlubKartica naslov="Prvi tim" tekst={`Seniorska ekipa u ${TAKMICENJE.naziv === "Prva A liga" ? "Prvoj A ligi" : TAKMICENJE.naziv} Srbije.`} />
-          <KlubKartica naslov="Mlađe kategorije" tekst="Kadeti, juniori i pioniri — takmičenja i redovni treninzi tokom cele godine." />
-          <KlubKartica naslov="Škola vaterpola" tekst="Upis dece tokom cele godine. Javi se za probni trening." link={{ href: "#kontakt", tekst: "Kontakt" }} />
+      <section id="klub" className="bg-navy-950 py-24 staze-tamne">
+        <div className="mx-auto max-w-[1328px] px-5 sm:px-7">
+          <NaslovSekcije kicker="Postani deo tima" naslov="Klub" />
+          <div className="grid gap-5 md:grid-cols-3">
+            <KlubKartica broj="01" naslov="Prvi tim" tekst={`Seniorska ekipa u ${TAKMICENJE.naziv === "Prva A liga" ? "Prvoj A ligi" : TAKMICENJE.naziv} Srbije.`} />
+            <KlubKartica broj="02" naslov="Mlađe kategorije" tekst="Kadeti, juniori i pioniri — takmičenja i redovni treninzi tokom cele godine." />
+            <KlubKartica broj="03" naslov="Škola vaterpola" tekst="Upis dece tokom cele godine. Javi se za probni trening." link={{ href: "#kontakt", tekst: "Kontakt" }} />
+          </div>
         </div>
       </section>
     </>
@@ -124,12 +129,14 @@ function TrakaStavka({ naslov, children }: { naslov: string; children: React.Rea
   );
 }
 
-function KlubKartica({ naslov, tekst, link }: { naslov: string; tekst: string; link?: { href: string; tekst: string } }) {
+function KlubKartica({ broj, naslov, tekst, link }: { broj: string; naslov: string; tekst: string; link?: { href: string; tekst: string } }) {
   return (
-    <div className="rounded-[10px] border-l-4 border-red-600 bg-white p-7">
-      <h3 className="display text-[34px]">{naslov}</h3>
-      <p className="mt-3 text-[16px] leading-relaxed text-navy-800/65">{tekst}</p>
-      {link && <a href={link.href} className="mt-4 inline-block font-cond text-[14px] font-bold uppercase tracking-[.16em] text-red-600">{link.tekst} →</a>}
+    <div className="kartica-sjaj group relative flex flex-col overflow-hidden rounded-[12px] border border-white/10 bg-gradient-to-br from-navy-700 to-navy-900 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-red-600/70">
+      <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-red-600 transition-transform duration-300 group-hover:scale-x-100" />
+      <span className="display text-[64px] text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,.28)] transition-all duration-300 group-hover:[-webkit-text-stroke:1.5px_#f0303f]">{broj}</span>
+      <h3 className="display mt-5 text-[34px]">{naslov}</h3>
+      <p className="mt-3 text-[16px] leading-relaxed text-white/60">{tekst}</p>
+      {link && <a href={link.href} className="mt-auto pt-6 font-cond text-[14px] font-bold uppercase tracking-[.16em] text-red-300 hover:text-white">{link.tekst} →</a>}
     </div>
   );
 }
