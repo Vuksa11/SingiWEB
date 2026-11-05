@@ -1,12 +1,12 @@
 // Povlači tabelu i raspored/rezultate Singidunuma sa srbijasport.net i upisuje
-// data/tabela.json i data/utakmice.json. Pokreće ga GitHub Action samo vikendom
+// data/tabela.json i data/utakmice.json. Pokreće ga GitHub Action sredom i vikendom
 // (.github/workflows/osvezi-podatke.yml); ručno: npm run osvezi
 import { readFileSync, writeFileSync } from "node:fs";
 
 const LIGA = "https://srbijasport.net/league/8940-prva-a-liga"; // promeni svake sezone
 const KLUB = "Singidunum";
 const BROJ_KOLA = 26;
-const UA = { "User-Agent": "VK-Singidunum-sajt (osvezavanje vikendom)" };
+const UA = { "User-Agent": "VK-Singidunum-sajt (osvezavanje sreda+vikend)" };
 
 const preuzmi = async (url) => {
   const odg = await fetch(url, { headers: UA });

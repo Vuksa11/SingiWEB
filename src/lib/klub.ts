@@ -12,7 +12,7 @@ export const KLUB = {
 };
 
 // Tabela i utakmice dolaze sa srbijasport.net preko scripts/osvezi-podatke.mjs
-// (GitHub Action, samo vikendom). Svake sezone promeni ID lige i ovde i u skripti.
+// (GitHub Action, sredom i vikendom). Svake sezone promeni ID lige i ovde i u skripti.
 export const TAKMICENJE = {
   naziv: "Prva A liga",
   sezona: "2026/27",

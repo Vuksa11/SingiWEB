@@ -11,7 +11,7 @@ export default function Raspored() {
   const sada = Date.now();
   return (
     <>
-      <ZaglavljeStrane kicker={`${TAKMICENJE.naziv} · ${TAKMICENJE.sezona}`} naslov="Raspored" opis="Sve utakmice prvog tima u sezoni. Rezultati se osvežavaju vikendom." />
+      <ZaglavljeStrane kicker={`${TAKMICENJE.naziv} · ${TAKMICENJE.sezona}`} naslov="Raspored" opis="Sve utakmice prvog tima u sezoni. Rezultati se osvežavaju sredom i vikendom." />
       <section className="bg-navy-900 pb-20">
         <div className="mx-auto grid max-w-[1100px] gap-2.5 px-5 sm:px-7">
           {utakmice.map((u) => {

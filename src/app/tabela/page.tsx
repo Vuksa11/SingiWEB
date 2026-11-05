@@ -17,7 +17,7 @@ export default function TabelaStrana() {
           <p className="mt-5 text-[13px] leading-relaxed text-white/40">
             OU – odigrane utakmice · P – pobede · I – izgubljene · DG/PG – dati/primljeni golovi · GR – gol-razlika.
             <br />
-            Izvor: <a href={`${TAKMICENJE.srbijasportLigaUrl}/standings`} className="underline">srbijasport.net</a> · osvežava se vikendom, poslednji put{" "}
+            Izvor: <a href={`${TAKMICENJE.srbijasportLigaUrl}/standings`} className="underline">srbijasport.net</a> · osvežava se sredom i vikendom, poslednji put{" "}
             {new Date(tabela.azurirano).toLocaleString("sr-Latn-RS", { timeZone: "Europe/Belgrade", dateStyle: "short", timeStyle: "short" })}.
           </p>
         </div>

@@ -14,16 +14,16 @@ npm run build
 
 | Sekcija | Izvor | Kako se menja |
 |---|---|---|
-| **Tabela lige** | `data/tabela.json` ← srbijasport.net `/league/8940-prva-a-liga/standings` | automatski, vikendom |
-| **Raspored i rezultati** | `data/utakmice.json` ← srbijasport.net, JSON-LD `SportsEvent` iz svakog kola (`/games?round=N`) | automatski, vikendom |
+| **Tabela lige** | `data/tabela.json` ← srbijasport.net `/league/8940-prva-a-liga/standings` | automatski, sredom i vikendom |
+| **Raspored i rezultati** | `data/utakmice.json` ← srbijasport.net, JSON-LD `SportsEvent` iz svakog kola (`/games?round=N`) | automatski, sredom i vikendom |
 | **Vesti** | Markdown fajlovi u `content/vesti/*.md` | novi `.md` fajl (može i preko GitHub web editora) → commit → Vercel objavi |
 | Podaci o klubu | `src/lib/klub.ts` | bazen SC Tašmajdan, e-mail iz registra (companywall), Instagram |
 
-### Osvežavanje samo vikendom
+### Osvežavanje sredom i vikendom
 
-`.github/workflows/osvezi-podatke.yml` pokreće `scripts/osvezi-podatke.mjs` subotom i nedeljom
+`.github/workflows/osvezi-podatke.yml` pokreće `scripts/osvezi-podatke.mjs` sredom, subotom i nedeljom
 svaka 2 sata (10–24h). Ako se tabela ili rezultati promene, Action napravi commit, a Vercel
-posle tog commita sam objavi sajt. Radnim danima se srbijasport uopšte ne kontaktira.
+posle tog commita sam objavi sajt. Ostalim danima se srbijasport ne kontaktira.
 Ručno: kartica **Actions → Osveži tabelu i rezultate → Run workflow**, ili lokalno `npm run osvezi`.
 
 Svake sezone: promeni `LIGA` i `BROJ_KOLA` u skripti i `srbijasportLigaUrl` u `src/lib/klub.ts`.

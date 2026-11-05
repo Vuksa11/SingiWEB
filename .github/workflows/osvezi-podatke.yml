@@ -1,10 +1,10 @@
-name: Osveži tabelu i rezultate (vikendom)
+name: Osveži tabelu i rezultate (sreda + vikend)
 
 on:
   schedule:
-    # Subota i nedelja, svaka 2 sata od 10 do 24h po beogradskom vremenu
+    # Sreda, subota i nedelja, svaka 2 sata od 10 do 24h po beogradskom vremenu
     # (cron je u UTC-u: 9–23 UTC zimi = 10–24h kod nas).
-    - cron: "0 9-23/2 * * 6,0"
+    - cron: "0 9-23/2 * * 3,6,0"
   workflow_dispatch: {} # ručno pokretanje iz kartice Actions
 
 permissions:

@@ -2,7 +2,7 @@ import "server-only";
 import podaci from "../../data/tabela.json";
 import { TAKMICENJE } from "./klub";
 
-// data/tabela.json puni scripts/osvezi-podatke.mjs (GitHub Action, vikendom).
+// data/tabela.json puni scripts/osvezi-podatke.mjs (GitHub Action, sredom i vikendom).
 export type RedTabele = {
   poz: number; tim: string; grad: string;
   ut: number; pob: number; pbp: number; prp: number; por: number;

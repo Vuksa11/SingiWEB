@@ -2,7 +2,7 @@ import "server-only";
 import podaci from "../../data/utakmice.json";
 import { KLUB } from "./klub";
 
-// data/utakmice.json puni scripts/osvezi-podatke.mjs (GitHub Action, vikendom).
+// data/utakmice.json puni scripts/osvezi-podatke.mjs (GitHub Action, sredom i vikendom).
 export type Utakmica = {
   kolo: number;
   datum: string; // ISO sa zonom
