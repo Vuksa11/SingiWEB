@@ -8,7 +8,6 @@ export const KLUB = {
   instagram: "https://www.instagram.com/vk_singidunum/",
   // Iz registra (companywall.rs) — da, piše se "singidumun".
   email: "wpcsingidumun@gmail.com",
-  aplikacijaTreninzi: "https://vkbgd.vercel.app",
 };
 
 // Tabela i utakmice dolaze sa srbijasport.net preko scripts/osvezi-podatke.mjs

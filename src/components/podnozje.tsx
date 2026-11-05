@@ -25,7 +25,6 @@ export default function Podnozje() {
           <ul className="mt-3 space-y-1.5 text-[15px] text-white/70">
             <li>{TAKMICENJE.naziv} {TAKMICENJE.sezona}</li>
             <li><a href={TAKMICENJE.srbijasportKlubUrl} className="hover:text-white">Svi rezultati (srbijasport.net)</a></li>
-            <li><a href={KLUB.aplikacijaTreninzi} className="hover:text-white">Aplikacija za treninge</a></li>
           </ul>
         </div>
       </div>

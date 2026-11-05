@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import NaslovSekcije from "@/components/naslov-sekcije";
 import VestKartica from "@/components/vest-kartica";
-import TabelaLige from "@/components/tabela-lige";
+import MiniTabela from "@/components/mini-tabela";
 import { sveVesti } from "@/lib/vesti";
 import { ucitajTabelu, jeNasKlub } from "@/lib/tabela";
 import { sledecaUtakmica, poslednjiRezultat, formatTermin, mesto } from "@/lib/utakmice";
@@ -40,7 +40,7 @@ export default function Pocetna() {
 
         {/* Traka: sledeća utakmica / poslednji rezultat / pozicija */}
         <div className="relative border-t border-white/8 bg-navy-950/70">
-          <div className="mx-auto grid max-w-[1328px] divide-white/8 px-5 sm:px-7 md:grid-cols-3 md:divide-x">
+          <div className="mx-auto grid max-w-[1328px] divide-white/8 px-5 sm:px-7 md:grid-cols-2 md:divide-x lg:grid-cols-[1.3fr_1.3fr_.7fr_.7fr]">
             <TrakaStavka naslov="Sledeća utakmica">
               {sledeca ? (
                 <>
@@ -62,7 +62,15 @@ export default function Pocetna() {
             <TrakaStavka naslov="Pozicija na tabeli">
               {nas ? (
                 <>
-                  <div className="display text-[44px] text-red-600">{nas.poz}.<span className="ml-3 text-[28px] text-white">{nas.bod} bod.</span></div>
+                  <div className="display text-[44px] text-red-600">{nas.poz}.</div>
+                  <div className="mt-1 text-[14px] text-white/55">od {tabela.redovi.length} klubova</div>
+                </>
+              ) : <div className="text-white/50">—</div>}
+            </TrakaStavka>
+            <TrakaStavka naslov="Broj bodova">
+              {nas ? (
+                <>
+                  <div className="display text-[44px]">{nas.bod}</div>
                   <div className="mt-1 text-[14px] text-white/55">{nas.ut} utakmica · {nas.pob} pobeda</div>
                 </>
               ) : <div className="text-white/50">—</div>}
@@ -71,37 +79,26 @@ export default function Pocetna() {
         </div>
       </section>
 
-      {/* VESTI */}
+      {/* VESTI + TABELA SA STRANE */}
       <section className="bg-cream-100 py-20 staze-svetle">
-        <div className="mx-auto max-w-[1328px] px-5 sm:px-7">
-          <NaslovSekcije kicker="Iz kluba" naslov="Vesti" link={{ href: "/vesti", tekst: "Sve vesti" }} svetla />
-          {vesti.length > 0 ? (
-            <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
-              {vesti.map((v, i) => <VestKartica key={v.slug} vest={v} velika={i === 0} />)}
-            </div>
-          ) : <p className="text-navy-800/60">Još nema vesti.</p>}
-        </div>
-      </section>
-
-      {/* TABELA */}
-      <section className="bg-navy-900 py-20">
-        <div className="mx-auto grid max-w-[1328px] gap-12 px-5 sm:px-7 lg:grid-cols-[1.5fr_1fr]">
+        <div className="mx-auto grid max-w-[1328px] gap-8 px-5 sm:px-7 lg:grid-cols-[1fr_340px]">
           <div>
-            <NaslovSekcije kicker={`${TAKMICENJE.naziv} ${TAKMICENJE.sezona}`} naslov="Tabela lige" link={{ href: "/tabela", tekst: "Puna tabela" }} />
-            <TabelaLige tabela={tabela} />
-            <p className="mt-4 text-[13px] text-white/35">
-              Izvor: <a href={`${TAKMICENJE.srbijasportLigaUrl}/standings`} className="underline">srbijasport.net</a>
-            </p>
+            <NaslovSekcije kicker="Iz kluba" naslov="Vesti" link={{ href: "/vesti", tekst: "Sve vesti" }} svetla />
+            {vesti.length > 0 ? (
+              <div className="grid gap-5 sm:grid-cols-2">
+                {vesti.map((v, i) => (
+                  <div key={v.slug} className={i === 0 ? "sm:col-span-2" : ""}>
+                    <VestKartica vest={v} velika={i === 0} />
+                  </div>
+                ))}
+              </div>
+            ) : <p className="text-navy-800/60">Još nema vesti.</p>}
           </div>
-          <div className="grid content-start gap-3 sm:grid-cols-2 lg:mt-[118px]">
-            <Stat broj={nas ? `${nas.poz}.` : "—"} opis="Mesto na tabeli" istaknut />
-            <Stat broj={nas ? String(nas.pob) : "—"} opis="Pobeda" />
-            <Stat broj={nas ? String(nas.dg) : "—"} opis="Datih golova" />
-            <Stat broj={nas ? String(nas.ut) : "—"} opis="Odigranih utakmica" />
-            <a href={TAKMICENJE.srbijasportKlubUrl} className="rounded-[10px] border border-white/12 p-5 font-cond text-[15px] font-bold uppercase tracking-[.16em] hover:bg-white/5 sm:col-span-2">
-              Svi rezultati →
-            </a>
-          </div>
+          <aside className="lg:pt-[118px]">
+            <div className="lg:sticky lg:top-24">
+              <MiniTabela tabela={tabela} />
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -123,15 +120,6 @@ function TrakaStavka({ naslov, children }: { naslov: string; children: React.Rea
     <div className="border-b border-white/8 py-6 md:border-b-0 md:px-7 md:first:pl-0">
       <div className="kicker mb-2 text-[11px] text-white/40">{naslov}</div>
       {children}
-    </div>
-  );
-}
-
-function Stat({ broj, opis, istaknut = false }: { broj: string; opis: string; istaknut?: boolean }) {
-  return (
-    <div className={`rounded-[10px] p-5 ${istaknut ? "bg-red-600" : "border border-white/10 bg-navy-800"}`}>
-      <div className="display text-[52px]">{broj}</div>
-      <div className={`mt-1 font-cond text-[13px] font-semibold uppercase tracking-[.18em] ${istaknut ? "text-white/85" : "text-white/50"}`}>{opis}</div>
     </div>
   );
 }

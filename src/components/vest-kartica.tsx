@@ -6,7 +6,7 @@ import { formatDatum } from "@/lib/vesti";
 export default function VestKartica({ vest, velika = false }: { vest: Vest; velika?: boolean }) {
   return (
     <Link href={`/vesti/${vest.slug}`} className="group flex flex-col overflow-hidden rounded-[10px] bg-white text-navy-800 shadow-[0_1px_0_rgba(15,29,53,.06)] transition-transform hover:-translate-y-0.5">
-      <div className={`relative ${velika ? "aspect-[16/9]" : "aspect-[16/10]"} overflow-hidden bg-navy-800 staze-tamne`}>
+      <div className={`relative ${velika ? "aspect-[16/9] sm:aspect-[21/8]" : "aspect-[16/10]"} overflow-hidden bg-navy-800 staze-tamne`}>
         {vest.slika ? (
           <Image src={vest.slika} alt="" fill className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
         ) : (

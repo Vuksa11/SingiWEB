@@ -28,10 +28,7 @@ export default function Zaglavlje() {
             </Link>
           ))}
         </nav>
-        <a href={KLUB.aplikacijaTreninzi} className="ml-auto rounded-[7px] bg-red-600 px-3.5 py-2 font-cond text-[13px] font-bold uppercase tracking-[.14em] transition-colors hover:bg-red-500 md:ml-0">
-          Treninzi
-        </a>
-        <details className="relative md:hidden">
+        <details className="relative ml-auto md:hidden">
           <summary className="cursor-pointer list-none rounded-[7px] border border-white/15 px-3 py-2 font-cond text-[13px] font-bold uppercase tracking-[.14em]">Meni</summary>
           <div className="absolute right-0 mt-2 w-48 rounded-[9px] border border-white/10 bg-navy-800 p-2 shadow-xl">
             {STAVKE.map((s) => (
