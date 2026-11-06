@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Grb from "@/components/grb";
 import NaslovSekcije from "@/components/naslov-sekcije";
 import VestKartica from "@/components/vest-kartica";
 import MiniTabela from "@/components/mini-tabela";
@@ -21,10 +21,9 @@ export default function Pocetna() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden bg-navy-900 staze-tamne">
-        <div className="pointer-events-none absolute -right-24 top-1/2 hidden -translate-y-1/2 opacity-[.07] lg:block">
-          <Image src="/grb.png" alt="" width={720} height={720} priority />
-        </div>
-        <div className="relative mx-auto max-w-[1328px] px-5 pb-16 pt-16 sm:px-7 sm:pb-24 sm:pt-24">
+        <div className="relative mx-auto flex max-w-[1328px] flex-col gap-8 px-5 pb-16 pt-12 sm:px-7 sm:pb-24 sm:pt-20 lg:flex-row-reverse lg:items-center lg:justify-between lg:gap-10">
+          <Grb size={320} className="h-auto w-[150px] sm:w-[200px] lg:w-[300px] xl:w-[340px]" />
+          <div>
           <div className="kicker text-red-300">{TAKMICENJE.naziv} · Sezona {TAKMICENJE.sezona}</div>
           <h1 className="display mt-4 text-[64px] sm:text-[104px] lg:text-[136px]">
             Vaterpolo<br />klub <span className="text-red-600">{KLUB.ime}</span>
@@ -35,6 +34,7 @@ export default function Pocetna() {
           <div className="mt-9 flex flex-wrap gap-3">
             <Link href="/raspored" className="rounded-[7px] bg-red-600 px-6 py-3.5 font-cond text-[16px] font-bold uppercase tracking-[.16em] hover:bg-red-500">Raspored utakmica</Link>
             <Link href="/vesti" className="rounded-[7px] border border-white/20 px-6 py-3.5 font-cond text-[16px] font-bold uppercase tracking-[.16em] hover:bg-white/6">Najnovije vesti</Link>
+          </div>
           </div>
         </div>
 

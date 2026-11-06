@@ -16,7 +16,7 @@ export default function Zaglavlje() {
     <header className="sticky top-0 z-40 border-b border-white/8 bg-navy-900/92 backdrop-blur">
       <div className="mx-auto flex h-18 max-w-[1328px] items-center gap-6 px-5 sm:px-7">
         <Link href="/" className="flex items-center gap-3">
-          <Grb size={42} />
+          <Grb size={52} />
           <span className="leading-none">
             <span className="block font-cond text-[11px] font-semibold uppercase tracking-[.28em] text-red-300">VK</span>
             <span className="block font-cond text-[22px] font-bold uppercase tracking-wide">{KLUB.ime}</span>
