@@ -1,9 +1,23 @@
 {
-  "azurirano": "2026-11-07T15:18:05.490Z",
+  "azurirano": "2026-11-08T15:41:55.766Z",
   "izvor": "https://srbijasport.net/league/8940-prva-a-liga/standings",
   "redovi": [
     {
       "poz": 1,
+      "tim": "Bečej",
+      "grad": "Bečej",
+      "ut": 4,
+      "pob": 4,
+      "pbp": 0,
+      "prp": 0,
+      "por": 0,
+      "dg": 73,
+      "pg": 43,
+      "gr": 30,
+      "bod": 12
+    },
+    {
+      "poz": 2,
       "tim": "Taurunum",
       "grad": "Zemun",
       "ut": 3,
@@ -14,20 +28,6 @@
       "dg": 70,
       "pg": 35,
       "gr": 35,
-      "bod": 9
-    },
-    {
-      "poz": 2,
-      "tim": "Bečej",
-      "grad": "Bečej",
-      "ut": 3,
-      "pob": 3,
-      "pbp": 0,
-      "prp": 0,
-      "por": 0,
-      "dg": 54,
-      "pg": 27,
-      "gr": 27,
       "bod": 9
     },
     {
@@ -62,14 +62,14 @@
       "poz": 5,
       "tim": "Palilula",
       "grad": "Beograd",
-      "ut": 2,
+      "ut": 3,
       "pob": 2,
       "pbp": 0,
       "prp": 0,
-      "por": 0,
-      "dg": 39,
-      "pg": 18,
-      "gr": 21,
+      "por": 1,
+      "dg": 55,
+      "pg": 37,
+      "gr": 18,
       "bod": 6
     },
     {
