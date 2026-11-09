@@ -1,5 +1,5 @@
 {
-  "azurirano": "2026-11-08T15:41:55.766Z",
+  "azurirano": "2026-11-09T00:23:52.733Z",
   "izvor": "https://srbijasport.net/league/8940-prva-a-liga/standings",
   "redovi": [
     {
@@ -74,6 +74,20 @@
     },
     {
       "poz": 6,
+      "tim": "Požarevac",
+      "grad": "Požarevac",
+      "ut": 4,
+      "pob": 2,
+      "pbp": 0,
+      "prp": 0,
+      "por": 2,
+      "dg": 61,
+      "pg": 62,
+      "gr": -1,
+      "bod": 6
+    },
+    {
+      "poz": 7,
       "tim": "Taš",
       "grad": "Beograd",
       "ut": 3,
@@ -87,7 +101,7 @@
       "bod": 3
     },
     {
-      "poz": 7,
+      "poz": 8,
       "tim": "Singidunum",
       "grad": "Beograd",
       "ut": 3,
@@ -101,7 +115,7 @@
       "bod": 3
     },
     {
-      "poz": 8,
+      "poz": 9,
       "tim": "Borac (BL)",
       "grad": "Banja Luka",
       "ut": 4,
@@ -112,20 +126,6 @@
       "dg": 50,
       "pg": 55,
       "gr": -5,
-      "bod": 3
-    },
-    {
-      "poz": 9,
-      "tim": "Požarevac",
-      "grad": "Požarevac",
-      "ut": 3,
-      "pob": 1,
-      "pbp": 0,
-      "prp": 0,
-      "por": 2,
-      "dg": 39,
-      "pg": 49,
-      "gr": -10,
       "bod": 3
     },
     {
@@ -146,14 +146,14 @@
       "poz": 11,
       "tim": "BVK Radnički",
       "grad": "Beograd",
-      "ut": 3,
+      "ut": 4,
       "pob": 1,
       "pbp": 0,
       "prp": 0,
-      "por": 2,
-      "dg": 29,
-      "pg": 61,
-      "gr": -32,
+      "por": 3,
+      "dg": 42,
+      "pg": 83,
+      "gr": -41,
       "bod": 3
     },
     {
