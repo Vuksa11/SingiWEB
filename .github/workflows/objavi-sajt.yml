@@ -1,0 +1,57 @@
+name: Objavi sajt na wpcsingidunum.rs
+
+# Pravi statički sajt (bez /admin, on živi na Vercelu) i otprema ga preko FTP-a u public_html.
+# Pokreće se:
+#  - na svaki push na main — i tvoj git push i svako „Sačuvaj" iz admina (commit preko tokena),
+#  - iz Action-a „Osveži tabelu" kad stignu novi rezultati (njegov commit sam ne pokreće ovo),
+#  - svake noći, da se „sledeća utakmica" pomeri sa datumom,
+#  - ručno: Actions → Objavi sajt → Run workflow.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "5 23 * * *" # 00:05 zimi / 01:05 leti po beogradskom vremenu
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: objavi-sajt
+  cancel-in-progress: false # objave idu jedna za drugom; poslednja uvek nosi sve izmene
+
+jobs:
+  objavi:
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Napravi statički sajt
+        run: |
+          rm -rf src/app/admin
+          STATIC_EXPORT=1 npx next build
+          cp deploy/.htaccess out/.htaccess
+
+      - name: FTP još nije podešen — samo provera builda
+        if: env.FTP_SERVER == ''
+        run: echo "::notice::Nema FTP_SERVER secreta — sajt je napravljen, ali nije otpremljen."
+
+      - name: Otpremi u public_html
+        if: env.FTP_SERVER != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ vars.FTP_PROTOKOL || 'ftps' }}
+          local-dir: ./out/
+          # FTP nalog zaključan na public_html → "./"; glavni cPanel nalog → "public_html/"
+          server-dir: ${{ vars.FTP_FOLDER || './' }}

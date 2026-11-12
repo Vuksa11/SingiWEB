@@ -21,8 +21,8 @@ export default async function AdminVesti({ searchParams }: { searchParams: Promi
     <div className="mx-auto max-w-[1000px] px-5 py-14 sm:px-7">
       <AdminNaslov nazad={{ href: "/admin", tekst: "Uređivanje sajta" }} naslov="Vesti"
         desno={<Link href="/admin/vesti/nova" className="rounded-[8px] bg-red-600 px-5 py-3 font-cond text-[15px] font-bold uppercase tracking-[.16em] text-white hover:bg-red-500">+ Nova vest</Link>} />
-      {sp.sacuvano && <Obavestenje>Vest je sačuvana.</Obavestenje>}
-      {sp.obrisano && <Obavestenje>Vest je obrisana.</Obavestenje>}
+      {sp.sacuvano && <Obavestenje>Vest je sačuvana. Na sajtu se vidi za 1–2 minuta.</Obavestenje>}
+      {sp.obrisano && <Obavestenje>Vest je obrisana. Sa sajta nestaje za 1–2 minuta.</Obavestenje>}
       <div className="mt-8 overflow-hidden rounded-[10px] bg-white">
         {vesti.length === 0 && <p className="p-6 text-navy-800/60">Još nema vesti. Klikni „+ Nova vest".</p>}
         {vesti.map((v) => (

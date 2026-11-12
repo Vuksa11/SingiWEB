@@ -1,0 +1,23 @@
+# VK Singidunum — statički sajt (Next export). Ovaj fajl dolazi iz repoa (deploy/.htaccess)
+# i GitHub Action ga otprema pri svakoj objavi; ručne izmene na serveru će biti pregažene.
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
+# Spisak fajlova koji FTP deploy drži na serveru — nije za javnost.
+<Files ".ftp-deploy-sync-state.json">
+  Require all denied
+</Files>
+
+<IfModule mod_headers.c>
+  # HTML uvek proveri da li ima nove verzije (vesti/tabela se menjaju).
+  <FilesMatch "\.(html|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # JS/CSS iz _next/static imaju hash u imenu — mogu da se keširaju zauvek.
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>

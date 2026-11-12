@@ -13,7 +13,7 @@ export default async function AdminMladje({ searchParams }: { searchParams: Prom
     <div className="mx-auto max-w-[900px] px-5 py-14 sm:px-7">
       <AdminNaslov nazad={{ href: "/admin", tekst: "Uređivanje sajta" }} naslov="Mlađe kategorije"
         desno={<Link href="/mladje-kategorije" target="_blank" className={dugmeSporedno}>Pogledaj stranicu</Link>} />
-      {sp.sacuvano && <Obavestenje>Stranica je sačuvana.</Obavestenje>}
+      {sp.sacuvano && <Obavestenje>Stranica je sačuvana. Na sajtu se vidi za 1–2 minuta.</Obavestenje>}
       <FormaStranice pocetno={s} />
     </div>
   );

@@ -24,7 +24,9 @@ jobs:
         with:
           node-version: 20
       - run: node scripts/osvezi-podatke.mjs
-      - name: Commit ako ima promena (Vercel onda sam objavi sajt)
+      - name: Commit ako ima promena, pa objavi sajt
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- data/; then
             echo "Nema promena."
@@ -35,9 +37,14 @@ jobs:
           git add data/
           git commit -m "Tabela i rezultati sa srbijasport.net"
           git push
+          # Push preko github.token NE pokreće druge Action-e, pa objavu pokrećemo eksplicitno.
+          gh workflow run objavi-sajt.yml --ref "${{ github.ref_name }}"
       - name: Drži zakazano pokretanje aktivnim
         # GitHub gasi zakazane Action-e posle 60 dana bez aktivnosti u repou
         # (npr. leti, kad nema utakmica). Ovo ih ponovo potvrđuje pri svakom pokretanju.
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/osvezi-podatke.yml/enable"
+        run: |
+          for wf in osvezi-podatke.yml objavi-sajt.yml; do
+            gh api -X PUT "repos/${{ github.repository }}/actions/workflows/$wf/enable"
+          done

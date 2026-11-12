@@ -12,8 +12,8 @@ export default async function AdminEkipa({ searchParams }: { searchParams: Promi
   return (
     <div className="mx-auto max-w-[1100px] px-5 py-14 sm:px-7">
       <AdminNaslov nazad={{ href: "/admin", tekst: "Uređivanje sajta" }} naslov="Prvi tim" opis="Klikni na člana da ga izmeniš, ili na karticu sa plusom da dodaš novog." />
-      {sp.sacuvano && <Obavestenje>Sačuvano.</Obavestenje>}
-      {sp.obrisano && <Obavestenje>Član je uklonjen.</Obavestenje>}
+      {sp.sacuvano && <Obavestenje>Sačuvano. Na sajtu se vidi za 1–2 minuta.</Obavestenje>}
+      {sp.obrisano && <Obavestenje>Član je uklonjen. Sa sajta nestaje za 1–2 minuta.</Obavestenje>}
 
       {(Object.keys(GRUPE) as Clan["grupa"][]).map((g) => (
         <div key={g} className="mt-10">
