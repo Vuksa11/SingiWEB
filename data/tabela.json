@@ -1,5 +1,5 @@
 {
-  "azurirano": "2026-11-15T15:59:14.271Z",
+  "azurirano": "2026-11-18T17:42:12.500Z",
   "izvor": "https://srbijasport.net/league/8940-prva-a-liga/standings",
   "redovi": [
     {
@@ -46,6 +46,20 @@
     },
     {
       "poz": 4,
+      "tim": "Palilula",
+      "grad": "Beograd",
+      "ut": 4,
+      "pob": 3,
+      "pbp": 0,
+      "prp": 0,
+      "por": 1,
+      "dg": 77,
+      "pg": 54,
+      "gr": 23,
+      "bod": 9
+    },
+    {
+      "poz": 5,
       "tim": "Dorćol",
       "grad": "Beograd",
       "ut": 4,
@@ -57,20 +71,6 @@
       "pg": 38,
       "gr": 21,
       "bod": 9
-    },
-    {
-      "poz": 5,
-      "tim": "Palilula",
-      "grad": "Beograd",
-      "ut": 3,
-      "pob": 2,
-      "pbp": 0,
-      "prp": 0,
-      "por": 1,
-      "dg": 55,
-      "pg": 37,
-      "gr": 18,
-      "bod": 6
     },
     {
       "poz": 6,
@@ -90,14 +90,14 @@
       "poz": 7,
       "tim": "Požarevac",
       "grad": "Požarevac",
-      "ut": 4,
+      "ut": 5,
       "pob": 2,
       "pbp": 0,
       "prp": 0,
-      "por": 2,
-      "dg": 61,
-      "pg": 62,
-      "gr": -1,
+      "por": 3,
+      "dg": 78,
+      "pg": 84,
+      "gr": -6,
       "bod": 6
     },
     {
