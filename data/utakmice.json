@@ -1,5 +1,5 @@
 {
-  "azurirano": "2026-11-05T10:41:57.324Z",
+  "azurirano": "2026-11-21T16:30:57.890Z",
   "izvor": "https://srbijasport.net/league/8940-prva-a-liga/games",
   "utakmice": [
     {
@@ -31,25 +31,25 @@
     },
     {
       "kolo": 4,
-      "datum": "2026-11-07T00:00:00+01:00",
+      "datum": "2026-11-07T21:30:00+01:00",
       "domacin": "Singidunum",
       "gost": "Mladost",
       "grad": "Beograd",
-      "rezultat": null,
+      "rezultat": "9:10",
       "link": "https://srbijasport.net/game/903501-singidunum-mladost"
     },
     {
       "kolo": 5,
-      "datum": "2026-11-14T00:00:00+01:00",
+      "datum": "2026-11-14T20:00:00+01:00",
       "domacin": "Taš",
       "gost": "Singidunum",
       "grad": "Beograd",
-      "rezultat": null,
+      "rezultat": "13:19",
       "link": "https://srbijasport.net/game/903505-tas-singidunum"
     },
     {
       "kolo": 6,
-      "datum": "2026-11-21T00:00:00+01:00",
+      "datum": "2026-11-23T21:00:00+01:00",
       "domacin": "Singidunum",
       "gost": "Taurunum",
       "grad": "Beograd",
